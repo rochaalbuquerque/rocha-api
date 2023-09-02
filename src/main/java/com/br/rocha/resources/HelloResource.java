@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping(value = "/hello")
-public class HelloWorld {
+public class HelloResource {
 
 	@GetMapping
 	@Operation(summary = "Bem vindos!")

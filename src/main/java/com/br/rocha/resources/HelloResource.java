@@ -13,7 +13,7 @@ public class HelloResource {
 	@GetMapping
 	@Operation(summary = "Bem vindos!")
 	public String helloWorld() {
-		return "Hello World! This is the Rocha base project";
+		return "Hello World! This is the Rocha base project ON";
 	}
 
 }

@@ -21,9 +21,9 @@ public class SQLScripts implements Serializable {
 	private String name;
 	private String descrition;
 	private String sqlQuery;
-	private List<String> sqlConditions = new ArrayList<>(); // Lista
-	private LocalDateTime dtCreation; // Data
-	private LocalDateTime dtUpdate; // Data
+	private List<String> sqlConditions = new ArrayList<>(); 
+	private LocalDateTime dtCreation; 
+	private LocalDateTime dtUpdate; 
 	private static final long serialVersionUID = 1L;
 
 }

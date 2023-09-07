@@ -2,16 +2,18 @@ package com.br.rocha.services;
 
 import java.util.List;
 
+import com.br.rocha.dto.NewSQLScriptDTO;
+import com.br.rocha.dto.ResponseSQLScriptDTO;
 import com.br.rocha.entities.SQLScripts;
 
 import jakarta.validation.Valid;
 
 public interface SQLScriptsService {
 
-	SQLScripts validationAndInsert(@Valid SQLScripts newQuery);
+	SQLScripts validationAndInsert(@Valid NewSQLScriptDTO newQuery) throws Exception;
 
-	List<SQLScripts> findAll();
+	List<ResponseSQLScriptDTO> findAll();
 
-	SQLScripts updateAndExecult(@Valid SQLScripts obj);
+	SQLScripts update(@Valid SQLScripts obj);
 
 }

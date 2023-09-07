@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.br.rocha.dto.NewSQLScriptDTO;
+import com.br.rocha.dto.ResponseSQLScriptDTO;
 import com.br.rocha.entities.SQLScripts;
 import com.br.rocha.services.SQLScriptsService;
 
@@ -31,18 +33,20 @@ public class SQLScriptsResource {
 
 	@PostMapping
 	@Operation(summary = "cadastrar script")
-	public ResponseEntity<Void> newQuery(@Valid @RequestBody SQLScripts newQuery) {
+	public ResponseEntity<Void> newQuery(@Valid @RequestBody NewSQLScriptDTO newQuery) throws Exception {
 
-		SQLScripts obj = service.validationAndInsert(newQuery);
+		SQLScripts obj = service.validationAndInsert(newQuery);		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		
 		return ResponseEntity.created(uri).build();
 	}
 
 	@GetMapping
 	@Operation(summary = "Listar todos os scripts")
-	public ResponseEntity<List<SQLScripts>> allQueryies() {
-		List<SQLScripts> list = service.findAll();
-		return ResponseEntity.ok().body(list);
+	public ResponseEntity<List<ResponseSQLScriptDTO>> allQueryies() {
+		
+		List<ResponseSQLScriptDTO> listDto = service.findAll();
+		return ResponseEntity.ok().body(listDto);
 
 	}
 
@@ -52,7 +56,7 @@ public class SQLScriptsResource {
 
 		obj.setId(id);
 		@SuppressWarnings("unused")
-		SQLScripts queryResponse = service.updateAndExecult(obj);
+		SQLScripts queryResponse = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
 }

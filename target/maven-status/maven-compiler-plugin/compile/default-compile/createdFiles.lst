@@ -1,3 +1,12 @@
-com\br\rocha\resources\HelloWorld.class
-com\br\rocha\config\DevConfig.class
+com\br\rocha\servicies\impl\SQLScriptsServiceImpl.class
+com\br\rocha\config\ModelMapperConfing.class
+com\br\rocha\repositories\SQLScriptsRepository.class
+com\br\rocha\resources\SQLScriptsResource.class
+com\br\rocha\servicies\impl\SQLScriptsServiceImpl$1.class
 com\br\rocha\RochaApiApplication.class
+com\br\rocha\services\SQLScriptsService.class
+com\br\rocha\dto\ResponseSQLScriptDTO.class
+com\br\rocha\config\DevConfig.class
+com\br\rocha\entities\SQLScripts.class
+com\br\rocha\resources\HelloResource.class
+com\br\rocha\dto\NewSQLScriptDTO.class

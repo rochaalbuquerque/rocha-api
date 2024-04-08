@@ -48,10 +48,10 @@ public class ClientResource {
 
 	@PutMapping(value = "/{id}")
 	@Operation(summary = "Uptdate client")
-	public ResponseEntity<Void> updateClient(@Valid @RequestBody NewClientDTO objDTO, @PathVariable Integer id) throws Exception {
+	public ResponseEntity<Void> updateClient(@Valid @RequestBody NewClientDTO objDTO, @PathVariable Integer id)
+			throws Exception {
 		service.updateClient(objDTO, id);
 		return ResponseEntity.noContent().build();
-
 	}
 
 	@DeleteMapping(value = "/{id}")

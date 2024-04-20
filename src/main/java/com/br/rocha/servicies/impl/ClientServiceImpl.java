@@ -10,6 +10,7 @@ import com.br.rocha.dto.ResponseClientDTO;
 import com.br.rocha.entities.Client;
 import com.br.rocha.repositories.ClientRepository;
 import com.br.rocha.services.ClientService;
+import com.br.rocha.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ClientServiceImpl implements ClientService {
@@ -33,12 +34,10 @@ public class ClientServiceImpl implements ClientService {
 
 	public ResponseClientDTO updateClient(NewClientDTO objDTO, Integer id) throws Exception {
 
-		Client obj = findById(id);
-		
-		Client objUpdated = convertDTOToEntity(objDTO);		
+		Client objUpdated = convertDTOToEntity(objDTO);
 		objUpdated.setId(id);
 		repository.save(objUpdated);
-		return convertEntityToDTO(objUpdated);		 
+		return convertEntityToDTO(objUpdated);
 	}
 
 	public void deleteClient(Integer id) {
@@ -48,7 +47,8 @@ public class ClientServiceImpl implements ClientService {
 
 	// METODOS/FUNÇÕES
 	private Client findById(Integer id) throws Exception {
-		return repository.findById(id).orElseThrow(() -> new Exception(" Client of ID " + id + " Not Found "));
+		return repository.findById(id)
+				.orElseThrow(() -> new ObjectNotFoundException(" Client of ID " + id + " Not Found "));
 	}
 
 	private ResponseClientDTO convertEntityToDTO(Client obj) {

@@ -27,5 +27,7 @@ spring.flyway.enabled=true
 ## Ehcache versão 3
 
 ```
+https://www.baeldung.com/spring-boot-ehcache
+https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/boot-features-caching.html
 
 ```

@@ -30,6 +30,7 @@ public class ClientServiceImpl implements ClientService {
 		return convertEntityToDTO(obj);
 	}
 
+	@CacheEvict(value = "clienteId", allEntries = true)
 	public ResponseClientDTO createNewClient(NewClientDTO client) {
 
 		Client obj = modelMapper.map(client, Client.class);
@@ -44,7 +45,8 @@ public class ClientServiceImpl implements ClientService {
 		repository.save(objUpdated);
 		return convertEntityToDTO(objUpdated);
 	}
-
+	
+	@CacheEvict(value = "clienteId", allEntries = true)
 	public void deleteClient(Integer id) {
 		repository.deleteById(id);
 

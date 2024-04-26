@@ -1,11 +1,11 @@
+com\br\rocha\services\ClientService.class
+com\br\rocha\repositories\ClientRepository.class
+com\br\rocha\RochaApiApplication.class
+com\br\rocha\dto\ResponseClientDTO.class
+com\br\rocha\config\DevConfig.class
 com\br\rocha\dto\NewClientDTO.class
 com\br\rocha\config\ModelMapperConfing.class
 com\br\rocha\servicies\impl\ClientServiceImpl.class
 com\br\rocha\entities\Client.class
-com\br\rocha\services\ClientService.class
-com\br\rocha\repositories\ClientRepository.class
 com\br\rocha\servicies\impl\ClientServiceImpl$1.class
-com\br\rocha\RochaApiApplication.class
 com\br\rocha\resources\ClientResource.class
-com\br\rocha\dto\ResponseClientDTO.class
-com\br\rocha\config\DevConfig.class

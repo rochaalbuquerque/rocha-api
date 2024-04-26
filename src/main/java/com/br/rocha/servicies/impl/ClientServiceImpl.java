@@ -3,6 +3,8 @@ package com.br.rocha.servicies.impl;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.br.rocha.dto.NewClientDTO;
@@ -11,6 +13,7 @@ import com.br.rocha.entities.Client;
 import com.br.rocha.repositories.ClientRepository;
 import com.br.rocha.services.ClientService;
 import com.br.rocha.services.exceptions.ObjectNotFoundException;
+
 
 @Service
 public class ClientServiceImpl implements ClientService {
@@ -21,6 +24,7 @@ public class ClientServiceImpl implements ClientService {
 	@Autowired
 	private ModelMapper modelMapper;
 
+	@Cacheable(value="clienteId", key="#id")
 	public ResponseClientDTO findClientId(Integer id) throws Exception {
 		Client obj = findById(id);
 		return convertEntityToDTO(obj);
@@ -32,6 +36,7 @@ public class ClientServiceImpl implements ClientService {
 		return convertEntityToDTO(repository.save(obj));
 	}
 
+	@CacheEvict(value = "clienteId", allEntries = true)
 	public ResponseClientDTO updateClient(NewClientDTO objDTO, Integer id) throws Exception {
 
 		Client objUpdated = convertDTOToEntity(objDTO);

@@ -23,3 +23,9 @@ spring.flyway.locations=classpath:db/migration
 spring.flyway.schemas=data_base
 spring.flyway.enabled=true
 ```
+
+## Ehcache versão 3
+
+```
+
+```

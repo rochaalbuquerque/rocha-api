@@ -1,10 +1,32 @@
 # rocha-api
 
+
+## MYSQL database
+
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/rocha?useTimezone=true&serverTimezone=America/Sao_Paulo
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.username=${MYSQL_LOCAL_USER}
+spring.datasource.password=${MYSQL_LOCAL_PASSWORD}
+spring.datasource.testWhileIdle=true
+spring.datasource.validationQuery=SELECT 1
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.naming-strategy=org.hibernate.cfg.ImprovedNamingStrategy
+
+# LOG
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.root=INFO
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+```
+
+## Swagger 3
+
+```
 Swagger 3 and Spring Boot example (with OpenAPI 3)
-
-## Configure MySQL
-
-1. Using a database MySQL
+https://www.baeldung.com/spring-rest-openapi-documentation
+```
 
 ## Configure Flyway Migration
 

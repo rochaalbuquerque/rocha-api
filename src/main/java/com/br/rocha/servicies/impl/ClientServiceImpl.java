@@ -1,5 +1,8 @@
 package com.br.rocha.servicies.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +17,6 @@ import com.br.rocha.repositories.ClientRepository;
 import com.br.rocha.services.ClientService;
 import com.br.rocha.services.exceptions.ObjectNotFoundException;
 
-
 @Service
 public class ClientServiceImpl implements ClientService {
 
@@ -24,7 +26,19 @@ public class ClientServiceImpl implements ClientService {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	@Cacheable(value="clienteId", key="#id")
+	@Override
+	public List<ResponseClientDTO> findAllClient() throws Exception {
+
+		List<Client> listClient = findAll();
+		List<ResponseClientDTO> listClintConverted = new ArrayList<>();
+
+		for (Client client : listClient)
+			listClintConverted.add(convertEntityToDTO(client));
+
+		return listClintConverted;
+	}
+
+	@Cacheable(value = "clienteId", key = "#id")
 	public ResponseClientDTO findClientId(Integer id) throws Exception {
 		Client obj = findById(id);
 		return convertEntityToDTO(obj);
@@ -45,7 +59,7 @@ public class ClientServiceImpl implements ClientService {
 		repository.save(objUpdated);
 		return convertEntityToDTO(objUpdated);
 	}
-	
+
 	@CacheEvict(value = "clienteId", allEntries = true)
 	public void deleteClient(Integer id) {
 		repository.deleteById(id);
@@ -53,6 +67,10 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	// METODOS/FUNÇÕES
+	private List<Client> findAll() {
+		return repository.findAll();
+	}
+
 	private Client findById(Integer id) throws Exception {
 		return repository.findById(id)
 				.orElseThrow(() -> new ObjectNotFoundException(" Client of ID " + id + " Not Found "));
@@ -66,4 +84,5 @@ public class ClientServiceImpl implements ClientService {
 	private Client convertDTOToEntity(NewClientDTO objDTO) {
 		return modelMapper.map(objDTO, Client.class);
 	}
+
 }

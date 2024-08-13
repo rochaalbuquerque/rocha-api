@@ -1,6 +1,7 @@
 package com.br.rocha.resources;
 
 import java.net.URI;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -30,6 +31,14 @@ public class ClientResource {
 
 	@Autowired
 	private ClientService service;
+
+	@GetMapping()
+	@Operation(summary = "Get all client")
+	public ResponseEntity<List<ResponseClientDTO>> getAllClient() throws Exception {
+		List<ResponseClientDTO> listAllclientDTO = service.findAllClient();
+		return ResponseEntity.ok().body(listAllclientDTO);
+
+	}
 
 	@GetMapping(value = "/{id}")
 	@Operation(summary = "Get client of id")

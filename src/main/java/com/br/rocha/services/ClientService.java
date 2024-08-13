@@ -1,9 +1,13 @@
 package com.br.rocha.services;
 
+import java.util.List;
+
 import com.br.rocha.dto.NewClientDTO;
 import com.br.rocha.dto.ResponseClientDTO;
 
 public interface ClientService {
+
+	List<ResponseClientDTO> findAllClient() throws Exception;
 
 	ResponseClientDTO findClientId(Integer id) throws Exception;
 

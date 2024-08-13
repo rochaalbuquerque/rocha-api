@@ -5,6 +5,7 @@ D:\projects\rocha-api\src\main\java\com\br\rocha\services\ClientService.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\dto\ResponseClientDTO.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\resources\excepition\ResourceExceptionHandler.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\config\CacheConfig.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\config\WebConfig.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\config\ModelMapperConfing.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\dto\NewClientDTO.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\resources\excepition\ValidationError.java

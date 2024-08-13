@@ -8,7 +8,7 @@ import lombok.Data;
 public class NewClientDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 		
-	private String fistName;
+	private String firstName;
 	private String lastName;
 	private String email;
 	private String cpfOuCnpj;

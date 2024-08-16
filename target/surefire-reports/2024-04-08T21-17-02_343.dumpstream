@@ -1,5 +1,0 @@
-# Created at 2024-04-08T21:17:02.631
-Boot Manifest-JAR contains absolute paths in classpath 'D:\projects\rocha-api\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-'other' has different root
-

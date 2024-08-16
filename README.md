@@ -21,6 +21,16 @@ logging.level.root=INFO
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
 ```
 
+## Mongo DB database
+
+```
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=rocha
+#spring.data.mongodb.username=root
+#spring.data.mongodb.password=root
+```
+
 ## Swagger 3
 
 ```

@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.br.rocha.entities.Product;
 import com.br.rocha.services.ProductService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/products")
+@Tag(name = "Products", description = "Resource of Products in MongoDB")
 public class ProductController {
 
 	@Autowired

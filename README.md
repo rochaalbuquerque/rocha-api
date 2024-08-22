@@ -62,4 +62,16 @@ spring.flyway.enabled=true
 https://www.baeldung.com/spring-boot-ehcache
 https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/boot-features-caching.html
 
+
+## Configure from 17 to 21
 ```
+<properties>
+    <java.version>21</java.version>
+</properties>
+
+Configuração Global do Workspace:
+
+Vá para Window > Preferences > Java > Installed JREs.
+Adicione a JRE 21, caso ainda não esteja, e defina-a como padrão.
+```
+

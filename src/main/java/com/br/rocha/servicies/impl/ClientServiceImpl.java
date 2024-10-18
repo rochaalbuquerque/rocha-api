@@ -1,7 +1,7 @@
 package com.br.rocha.servicies.impl;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -15,7 +15,6 @@ import com.br.rocha.dto.ResponseClientDTO;
 import com.br.rocha.entities.Client;
 import com.br.rocha.repositories.ClientRepository;
 import com.br.rocha.services.ClientService;
-import com.br.rocha.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ClientServiceImpl implements ClientService {
@@ -28,36 +27,27 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public List<ResponseClientDTO> findAllClient() throws Exception {
-
-		List<Client> listClient = findAll();
-		List<ResponseClientDTO> listClintConverted = new ArrayList<>();
-
-		for (Client client : listClient)
-			listClintConverted.add(convertEntityToDTO(client));
-
-		return listClintConverted;
+		return repository.findAll().stream().map(this::convertEntityToDTO).collect(Collectors.toList());
 	}
 
 	@Cacheable(value = "clienteId", key = "#id")
 	public ResponseClientDTO findClientId(Integer id) throws Exception {
-		Client obj = findById(id);
-		return convertEntityToDTO(obj);
+		return convertEntityToDTO(repository.findById(id).orElse(null));
 	}
 
 	@CacheEvict(value = "clienteId", allEntries = true)
-	public ResponseClientDTO createNewClient(NewClientDTO client) {
-
-		Client obj = modelMapper.map(client, Client.class);
-		return convertEntityToDTO(repository.save(obj));
+	public ResponseClientDTO createNewClient(NewClientDTO newclient) {
+		return convertEntityToDTO(repository.save(modelMapper.map(newclient, Client.class)));
 	}
 
 	@CacheEvict(value = "clienteId", allEntries = true)
 	public ResponseClientDTO updateClient(NewClientDTO objDTO, Integer id) throws Exception {
 
-		Client objUpdated = convertDTOToEntity(objDTO);
-		objUpdated.setId(id);
-		repository.save(objUpdated);
-		return convertEntityToDTO(objUpdated);
+		Client existingClient = repository.findById(id).orElseThrow(() -> new Exception("Client not found"));
+
+		Client updatedClient = convertDTOToEntity(objDTO);
+		updatedClient.setId(existingClient.getId());
+		return convertEntityToDTO(repository.save(updatedClient));
 	}
 
 	@CacheEvict(value = "clienteId", allEntries = true)
@@ -67,15 +57,6 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	// METODOS/FUNÇÕES
-	private List<Client> findAll() {
-		return repository.findAll();
-	}
-
-	private Client findById(Integer id) throws Exception {
-		return repository.findById(id)
-				.orElseThrow(() -> new ObjectNotFoundException(" Client of ID " + id + " Not Found "));
-	}
-
 	private ResponseClientDTO convertEntityToDTO(Client obj) {
 		return modelMapper.map(obj, new TypeToken<ResponseClientDTO>() {
 		}.getType());

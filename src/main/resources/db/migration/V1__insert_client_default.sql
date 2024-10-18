@@ -1,1 +1,2 @@
-INSERT INTO rocha_client (id,cpf_ou_cnpj, email, fist_name, last_name) VALUES (1, '08369438795', 'a@gmail.com', 'Rocha', 'Albuquerque');
+INSERT INTO rocha_client (id,cpf_ou_cnpj, email, first_name, last_name) VALUES (1, '123', 'al@gmail.com', 'Rocha', 'Albuquerque');
+INSERT INTO rocha_client (id,cpf_ou_cnpj, email, first_name, last_name) VALUES (2, '321', 'ma@gmail.com', 'Malu', 'Albuquerque');

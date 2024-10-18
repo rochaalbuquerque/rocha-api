@@ -26,7 +26,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/clients")
-@Tag(name = "Clients", description = "Resource of Clients")
+@Tag(name = "Clients", description = "Resource of Clients in MYSQL")
 public class ClientResource {
 
 	@Autowired

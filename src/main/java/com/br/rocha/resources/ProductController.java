@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.br.rocha.entities.Product;
 import com.br.rocha.services.ProductService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
@@ -27,22 +28,26 @@ public class ProductController {
 	private ProductService productService;
 
 	@GetMapping
+	@Operation(summary = "Get all product")
 	public List<Product> getAllProducts() {
 		return productService.getAllProducts();
 	}
 
 	@GetMapping("/{id}")
+	@Operation(summary = "Get product of id")
 	public ResponseEntity<Product> getProductById(@PathVariable String id) {
 		Product product = productService.getProductById(id);
 		return ResponseEntity.ok(product);
 	}
 
 	@PostMapping
+	@Operation(summary = "Post new product")
 	public Product createProduct(@RequestBody Product product) {
 		return productService.saveProduct(product);
 	}
 
 	@PutMapping("/{id}")
+	@Operation(summary = "Uptdate product")
 	public ResponseEntity<Product> updateProduct(@PathVariable String id, @RequestBody Product productDetails) {
 		Product product = productService.getProductById(id);
 		product.setName(productDetails.getName());
@@ -52,6 +57,7 @@ public class ProductController {
 	}
 
 	@DeleteMapping("/{id}")
+	@Operation(summary = "Delete product")
 	public void deleteProduct(@PathVariable String id) {
 		productService.deleteProduct(id);
 	}

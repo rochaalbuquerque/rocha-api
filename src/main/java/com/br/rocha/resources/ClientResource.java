@@ -35,16 +35,13 @@ public class ClientResource {
 	@GetMapping()
 	@Operation(summary = "Get all client")
 	public ResponseEntity<List<ResponseClientDTO>> getAllClient() throws Exception {
-		List<ResponseClientDTO> listAllclientDTO = service.findAllClient();
-		return ResponseEntity.ok().body(listAllclientDTO);
-
+		return ResponseEntity.ok().body(service.findAllClient());
 	}
 
 	@GetMapping(value = "/{id}")
 	@Operation(summary = "Get client of id")
 	public ResponseEntity<ResponseClientDTO> getClientId(@PathVariable Integer id) throws Exception {
-		ResponseClientDTO clientDTO = service.findClientId(id);
-		return ResponseEntity.ok().body(clientDTO);
+		return ResponseEntity.ok().body(service.findClientId(id));
 	}
 
 	@PostMapping

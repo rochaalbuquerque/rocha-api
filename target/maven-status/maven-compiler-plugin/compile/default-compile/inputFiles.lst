@@ -4,6 +4,7 @@ D:\projects\rocha-api\src\main\java\com\br\rocha\services\ClientService.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\dto\ResponseClientDTO.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\resources\excepition\ResourceExceptionHandler.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\config\WebConfig.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\dto\ResponseProductDTO.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\resources\excepition\ValidationError.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\resources\ProductController.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\servicies\impl\ProductServiceImpl.java
@@ -13,9 +14,11 @@ D:\projects\rocha-api\src\main\java\com\br\rocha\repositories\ClientRepository.j
 D:\projects\rocha-api\src\main\java\com\br\rocha\services\exceptions\AuthorizationException.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\config\DevConfig.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\config\ModelMapperConfig.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\dto\NewProductDTO.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\repositories\ProductRepository.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\services\exceptions\ObjectNotFoundException.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\services\ProductService.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\resources\OrderResource.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\config\CacheConfig.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\dto\NewClientDTO.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\entities\Client.java

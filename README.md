@@ -65,6 +65,7 @@ https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/boot-featur
 ```
 
 ## Configure from 17 to 21
+
 ```
 <properties>
     <java.version>21</java.version>
@@ -86,6 +87,7 @@ style: (formatting, missing semi colons, etc; no production code change)
 refactor: (refactoring production code, eg. renaming a variable)
 test: (adding missing tests, refactoring tests; no production code change)
 chore: (updating grunt tasks etc; no production code change)
+
 ```
 
 ## Strategy Pattern (Padrão de Projeto)
@@ -122,4 +124,5 @@ https://www.youtube.com/watch?v=69eI1fPGsZI&list=LL&index=2
 https://refactoring.guru/design-patterns/strategy/java/example
 
 ```
+
 

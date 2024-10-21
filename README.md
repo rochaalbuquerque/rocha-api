@@ -88,3 +88,38 @@ test: (adding missing tests, refactoring tests; no production code change)
 chore: (updating grunt tasks etc; no production code change)
 ```
 
+## Strategy Pattern (Padrão de Projeto)
+
+```
+Strategy Pattern (Padrão de Projeto)
+Se o código dentro dos blocos if-else é mais complexo e requer diferentes implementações, você pode utilizar o Strategy Pattern. Ele ajuda a separar as diferentes lógicas em classes distintas.
+```
+
+```
+Criação do mapa de estratégias de pagamento:
+
+O código cria um HashMap<PaymentType, PaymentStrategy>, que associa diferentes tipos de pagamento (PaymentType) às suas respectivas estratégias de processamento (PaymentStrategy).
+São adicionadas três estratégias ao mapa: BoletoStrategy, PixStrategy, e CartaoStrategy, associadas a seus respectivos tipos de pagamento (BOLETO, PIX e CARTÃO).
+Conversão de String para enum PaymentType:
+
+O método getTypePayment() de orderDTO retorna o tipo de pagamento como uma String. Esse valor é convertido para um enum PaymentType usando o método valueOf().
+A conversão usa toUpperCase() para garantir que o texto da String corresponda exatamente ao nome do enum, que é sensível a maiúsculas/minúsculas.
+Tratamento de erros:
+
+Se a String do tipo de pagamento não corresponder a nenhum valor do enum, uma exceção IllegalArgumentException será lançada, capturada e transformada em uma FileException com uma mensagem clara sobre o erro.
+Processamento da estratégia de pagamento:
+
+O código usa o valor convertido de PaymentType como chave para recuperar a estratégia de pagamento correspondente do mapa.
+Se uma estratégia for encontrada, o método process() da estratégia é chamado para executar o processamento do pagamento.
+Caso não haja uma estratégia associada ao tipo de pagamento fornecido, uma exceção FileException é lançada informando que o tipo de pagamento não é suportado.
+Em resumo:
+Esse trecho de código pega o tipo de pagamento de um pedido (orderDTO), converte-o para um enum, encontra a estratégia de pagamento correta no mapa e executa essa estratégia. Se o tipo de pagamento não for válido ou não suportado, ele lança uma exceção.
+
+Links de referência dos estudos:
+https://github.com/Flavio-Vieirastack/tips/tree/main/strategy-factory 
+https://www.youtube.com/watch?v=DWoPsD_Aq2E
+https://www.youtube.com/watch?v=69eI1fPGsZI&list=LL&index=2
+https://refactoring.guru/design-patterns/strategy/java/example
+
+```
+

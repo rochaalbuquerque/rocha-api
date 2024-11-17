@@ -124,5 +124,73 @@ https://www.youtube.com/watch?v=69eI1fPGsZI&list=LL&index=2
 https://refactoring.guru/design-patterns/strategy/java/example
 
 ```
+## WSL / DOCKER / DOXKER-COMPOSE / IMG MYSQL / IMG MONGO
 
+```
+	WSL:
+		usuario: wsl
+		senha/; wsl
+	
+	
+	INCIO:
+		wsl
+		docker ps
+	
+	MYSQL:
+		sudo docker run --name mysql_db -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
+		sudo docker exec -it mysql_db mysql -uroot -p
+		
+		docker stop mysql_db
+		docker run mysql_db
+		docker rm msql_db_3306
+		docker rename mysql_db mysql_db_old
+		
+		
+		SHOW DATABASES;
+		USE rocha;
+		SHOW TABLES;
+		SELECT * FROM nome_da_tabela;
+		
+		CREATE DATABASE rocha;
+		DELETE FROM flyway_schema_history WHERE version = '1';
+		
+		CREATE TABLE IF NOT EXISTS rocha_client (
+	    id INT PRIMARY KEY,
+	    cpf_ou_cnpj VARCHAR(20),
+	    email VARCHAR(50),
+	    first_name VARCHAR(50),
+	    last_name VARCHAR(50)
+	);
+	
+	
+		
+	
+		
+		Porta MYSQL:
+			sudo docker run -d --name mysql_db -e MYSQL_ROOT_PASSWORD=root -p 3307:3306 mysql:latest
+	
+	
+	MONGO:
+		docker exec -it mongo_db mongosh
+		show databases;
+		use nome_do_banco;
+		db.nome_da_colecao.find().pretty();
+	
+	
+	CAMINHOS:
+		cd /mnt/d/projects/rocha-api/src/main/resources
+		cd /mnt/c/Users/Rocha
+	
+	
+	COMPOSE:
+		docker-compose -f /mnt/d/projects/rocha-api/src/main/resources/docker-compose.yml up -d
+		ou
+		cd /mnt/d/projects/rocha-api/src/main/resources
+		ls
+		docker compose up -d
+		
+	DOCKER:
+		docker inspect mysql_db | grep IPAddress
+
+```
 

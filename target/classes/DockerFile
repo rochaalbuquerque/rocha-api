@@ -1,0 +1,24 @@
+# Usar a imagem base openjdk
+FROM openjdk:21-jdk-slim
+
+# Defina o diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# Instalar Maven dentro da imagem (se necessário)mv
+RUN apt-get update && apt-get install -y maven
+
+# Copiar o código do aplicativo para dentro do contêiner
+COPY . .
+
+# Defina variáveis de ambiente para o Maven e Java (se necessário)
+ENV JAVA_HOME=/mnt/c/Program\ Files/Amazon\ Corretto/jdk21.0.4_7
+ENV MAVEN_HOME=/mnt/d/apache-maven-3.8.4
+
+# Execute o comando Maven (este comando será executado dentro do contêiner)
+RUN mvn clean install
+
+# Exponha a porta do aplicativo
+EXPOSE 8080
+
+# Comando para rodar a aplicação após o contêiner ser iniciado (modifique conforme sua aplicação)
+CMD ["java", "-jar", "target/app.jar"]

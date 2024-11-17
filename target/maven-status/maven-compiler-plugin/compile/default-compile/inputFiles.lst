@@ -1,8 +1,13 @@
 D:\projects\rocha-api\src\main\java\com\br\rocha\RochaApiApplication.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\resources\excepition\FieldMessage.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\enu\PaymentType.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\services\OrderService.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\servicies\impl\OrderServiceImpl.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\services\ClientService.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\strategy\CartaoStrategy.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\dto\ResponseClientDTO.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\resources\excepition\ResourceExceptionHandler.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\strategy\PixStrategy.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\config\WebConfig.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\dto\ResponseProductDTO.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\resources\excepition\ValidationError.java
@@ -11,10 +16,13 @@ D:\projects\rocha-api\src\main\java\com\br\rocha\servicies\impl\ProductServiceIm
 D:\projects\rocha-api\src\main\java\com\br\rocha\services\exceptions\FileException.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\services\exceptions\DataIntegrityException.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\repositories\ClientRepository.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\strategy\PaymentStrategy.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\services\exceptions\AuthorizationException.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\config\DevConfig.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\config\ModelMapperConfig.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\dto\NewOrderDTO.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\dto\NewProductDTO.java
+D:\projects\rocha-api\src\main\java\com\br\rocha\strategy\BoletoStrategy.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\repositories\ProductRepository.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\services\exceptions\ObjectNotFoundException.java
 D:\projects\rocha-api\src\main\java\com\br\rocha\services\ProductService.java

@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  # Serviço para o Spring Boot
+  app:
+    build:
+      context: .
+      dockerfile: DockerFile
+    container_name: springboot_app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_db:3306/rocha
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_MONGODB_URI: mongodb://mongo_db:27017/rocha_db
+    depends_on:
+      - mysql_db
+      - mongo_db
+    networks:
+      - app-network
+
+  # Serviço para MySQL
+  mysql_db:
+    image: mysql:latest
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: rocha
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  # Serviço para MongoDB
+  mongo_db:
+    image: mongo:latest
+    container_name: mongo_db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+  mongo_data:
